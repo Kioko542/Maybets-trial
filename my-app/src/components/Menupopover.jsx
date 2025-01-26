@@ -196,7 +196,7 @@ const Menupopover = () => {
         aria-haspopup="menu"
         onClick={togglePopover}
       >
-       <div className="grid grid-cols-2 gap-1 pl-2 mb-2 block hover:text-[#0FA018] text-gray-100 sm:hidden">
+       <div className="grid grid-cols-2 gap-1 pl-2 mb-2  hover:text-[#0FA018] text-gray-100 ">
     <FaCircle className="w-2 h-2 rounded-full bg-gray-200" />
     <FaCircle className="w-2 h-2 rounded-full bg-gray-200" />
     <FaCircle className="w-2 h-2 rounded-full bg-gray-200" />
