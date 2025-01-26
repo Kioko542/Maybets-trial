@@ -59,77 +59,79 @@ const CategorySection = () => {
 
       {/* Team Logos */}
       <div className="flex space-x-6 mb-6">
-        {loading ? (
-          // Loading placeholders for team logos
-          <div className="w-16 h-16 bg-gray-300 rounded-full animate-pulse" />
-        ) : (
-          teamLogos.map((team, index) => (
-            <div key={index} className="flex flex-col items-center space-y-2 text-center">
-              <div className="w-16 h-16 border-4 rounded-full border-gray-100 overflow-hidden">
-                <img
-                  src={team.logoUrl}
-                  alt={team.name}
-                  className="w-full h-full rounded-full object-cover"
-                />
-              </div>
-              <span className="text-sm font-medium text-gray-800">{team.name}</span>
-            </div>
-          ))
-        )}
+  {loading ? (
+    // Loading placeholders for team logos
+    <div className="w-16 h-16 bg-gray-300 rounded-full animate-pulse" />
+  ) : (
+    teamLogos.map((team, index) => (
+      <div key={index} className="flex flex-col items-center space-y-2 text-center group">
+        <div className="w-16 h-16 border-4 rounded-full border-gray-100 overflow-hidden group-hover:scale-110 transition-all duration-300 ease-in-out transform">
+          <img
+            src={team.logoUrl}
+            alt={team.name}
+            className="w-full h-full rounded-full object-cover group-hover:opacity-80 transition-opacity duration-300"
+          />
+        </div>
+        <span className="text-[12px] text-gray-200 group-hover:text-white transition-colors duration-300">{team.name}</span>
       </div>
+    ))
+  )}
+</div>
+
 
       {/* Team Analytics Section */}
       <div className="mt-8">
-        <h2 className="text-2xl font-semibold text-white">Team Analytics</h2>
-        <div className="overflow-x-auto no-scrollbar mt-6">
-          <div className="flex gap-8">
-            {loading ? (
-              // Loading placeholders for match cards
-              <div className="w-60 h-60 bg-gray-300 rounded-lg animate-pulse" />
-            ) : (
-              matches.map((match, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center space-y-6 bg-black p-6 rounded-2xl shadow-2xl hover:bg-gray-800 transition-all"
-                  style={{ width: '600px' }}
-                >
-                  <div className="flex items-center justify-between w-full bg-black">
-                    <div className="flex w-[150px] flex-col items-center bg-black">
-                      <div className="w-24 h-24 border-4 rounded-full border-gray-100 overflow-hidden">
-                        <img
-                          src={teamLogos.find(team => team.name === match.team1).logoUrl}
-                          alt={match.team1}
-                          className="w-full h-full rounded-full object-cover"
-                        />
-                      </div>
-                      <span className="text-sm font-medium text-gray-200">{match.team1}</span>
-                      <span className="text-lg font-bold text-white">{match.score1}</span>
-                    </div>
-                    <div className="text-center text-lg text-white font-bold bg-black">
-                      <span className="text-xs text-gray-400">VS</span>
-                    </div>
-                    <div className="flex w-[150px] flex-col items-center bg-black">
-                      <div className="w-24 h-24 border-4 rounded-full border-gray-100 overflow-hidden">
-                        <img
-                          src={teamLogos.find(team => team.name === match.team2).logoUrl}
-                          alt={match.team2}
-                          className="w-full h-full rounded-full object-cover"
-                        />
-                      </div>
-                      <span className="text-sm font-medium text-gray-200">{match.team2}</span>
-                      <span className="text-lg font-bold text-white">{match.score2}</span>
-                    </div>
-                  </div>
-                  <div className="text-xs text-gray-400 mt-2 text-center bg-black text-white">
-                    <p className="bg-black">Match: {match.team1} vs {match.team2}</p>
-                    <p className="bg-black">Score: {match.score1} - {match.score2}</p>
-                  </div>
+  <h2 className="text-2xl font-semibold text-white">Team Analytics</h2>
+  <div className="overflow-x-auto no-scrollbar mt-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {loading ? (
+        // Loading placeholders for match cards
+        <div className="w-60 h-60 bg-gray-300 rounded-lg animate-pulse" />
+      ) : (
+        matches.map((match, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center space-y-6 bg-black p-6 rounded-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            style={{ width: '100%' }} // Ensure the card takes full width of grid cell
+          >
+            <div className="flex items-center justify-between w-full bg-black">
+              <div className="flex w-[150px] flex-col items-center bg-black">
+                <div className="w-24 h-24 border-4 rounded-full border-gray-100 overflow-hidden">
+                  <img
+                    src={teamLogos.find(team => team.name === match.team1).logoUrl}
+                    alt={match.team1}
+                    className="w-full h-full rounded-full object-cover"
+                  />
                 </div>
-              ))
-            )}
+                <span className="text-sm font-medium text-gray-200">{match.team1}</span>
+                <span className="text-lg font-bold text-white">{match.score1}</span>
+              </div>
+              <div className="text-center text-lg text-white font-bold bg-black">
+                <span className="text-xs text-gray-400">VS</span>
+              </div>
+              <div className="flex w-[150px] flex-col items-center bg-black">
+                <div className="w-24 h-24 border-4 rounded-full border-gray-100 overflow-hidden">
+                  <img
+                    src={teamLogos.find(team => team.name === match.team2).logoUrl}
+                    alt={match.team2}
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+                <span className="text-sm font-medium text-gray-200">{match.team2}</span>
+                <span className="text-lg font-bold text-white">{match.score2}</span>
+              </div>
+            </div>
+            <div className="text-xs text-gray-400 mt-2 text-center bg-black text-white">
+              <p className="bg-black">Match: {match.team1} vs {match.team2}</p>
+              <p className="bg-black">Score: {match.score1} - {match.score2}</p>
+            </div>
           </div>
-        </div>
-      </div>
+        ))
+      )}
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };
