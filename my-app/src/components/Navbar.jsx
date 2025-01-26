@@ -45,21 +45,22 @@ const Navbar = () => {
       }, []);
     return (
         <nav className="w-full  ">
-            <div className="max-w-full py-3 mx-auto px-2 sm:px-6 lg:px-2">
+            <div className="max-w-full ">
                 <div className="relative  flex items-center justify-between h-16">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <div className="flex-shrink-0 text-white text-xl font-semibold">
+                        <div className="flex-shrink-0 text-white  text-xl font-semibold">
                             <img src={logo} className="mt-4" width={100} height={50} alt="Logo" />
                         </div>
                     </div>
 
                     {/* Mobile Menu Button (Moved to the right) */}
                     <div className="sm:hidden flex items-center ml-auto">
-                        <div className='flex gap-4 items-center'>
-                            <button className='border border-[#2EB839] hover:border-lime-600 rounded-md px-5 text-white text-sm py-2'>LOGIN</button>
-                            <button className='bg-[#2EB839] hover:bg-lime-600 text-sm font-bold text-white rounded-md px-5 py-2'>JOIN</button>
-                        </div>
+                    <div className="flex gap-2 items-center">
+    <button className="border border-[#2EB839] hover:border-lime-600 rounded-md px-5 text-white text-sm py-2 sm:px-4 sm:text-xs md:px-5 md:text-sm">LOGIN</button>
+    <button className="bg-[#2EB839] hover:bg-lime-600 text-sm font-bold text-white rounded-md px-5 py-2 sm:px-4 sm:text-xs md:px-5 md:text-sm">JOIN</button>
+</div>
+
                         <button
                             type="button"
                             className="inline-flex items-center justify-center p-2 rounded-md text-white pl-3 hover:text-gray-400  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
@@ -298,6 +299,7 @@ const Navbar = () => {
                     >
                         Contact
                     </a>
+                    <Menupopover/>
                 </div>
             </div>
         </nav>

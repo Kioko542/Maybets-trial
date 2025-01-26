@@ -38,7 +38,7 @@ const CategorySection = () => {
           categories.map((category, index) => (
             <button
               key={index}
-              className="px-4 py-2 text-md font-thin text-white rounded-full hover:bg-gray-600 transition relative"
+              className="px-2 py-2 text-sm font-thin text-white rounded-full hover:bg-gray-600 transition relative"
             >
               {category === "Live" ? (
                 <>

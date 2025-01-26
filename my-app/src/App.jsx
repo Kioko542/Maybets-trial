@@ -12,8 +12,7 @@ function App() {
 
   return (
     <>
-    <div className="px-6 bg-[#0B1428] z-50">
-    <Navbar/>
+      <div className="px-4 lg:px-6 bg-[#0B1428] bg-fixed z-50"><Navbar/>
     <HeroSection/>
     <IconBar/>
     <CardCarousel/>

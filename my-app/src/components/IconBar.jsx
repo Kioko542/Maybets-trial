@@ -11,6 +11,7 @@ import {
   FaCircle,
 } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import Menupopover from "../components/Menupopover";
 
 const IconBar = () => {
   const containerRef = useRef(null);
@@ -45,7 +46,6 @@ const IconBar = () => {
 
   return (
     <div className="relative flex items-center w-full py-6 lg:justify-center">
-       
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
