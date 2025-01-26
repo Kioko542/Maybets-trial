@@ -50,14 +50,13 @@ const CardCarousel = () => {
         {cards.map(({ title, description }, index) => (
           <div
             key={index}
-            className="flex  flex-col items-start space-y-2 snap-start bg-gray-800 text-white rounded-lg p-4 w-56 h-48 overflow-hidden flex-shrink-0"
+            className="flex  flex-col items-start space-y-2 snap-start border-t-yellow-500 border border-gray-800  bg-gray-800 text-white rounded-lg p-4 w-56 h-48 overflow-hidden flex-shrink-0"
           >
             <h3 className="font-semibold pt-3 text-lg bg-gray-800 text-ellipsis overflow-hidden">{title}</h3>
             <p className="text-sm text-left bg-gray-800 break-words">{description}</p>
           </div>
         ))}
       </div>
-
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}

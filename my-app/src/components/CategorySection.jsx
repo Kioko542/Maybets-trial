@@ -65,15 +65,18 @@ const CategorySection = () => {
   ) : (
     teamLogos.map((team, index) => (
       <div key={index} className="flex flex-col items-center space-y-2 text-center group">
-        <div className="w-16 h-16 border-4 rounded-full border-gray-100 overflow-hidden group-hover:scale-110 transition-all duration-300 ease-in-out transform">
-          <img
-            src={team.logoUrl}
-            alt={team.name}
-            className="w-full h-full rounded-full object-cover group-hover:opacity-80 transition-opacity duration-300"
-          />
-        </div>
-        <span className="text-[12px] text-gray-200 group-hover:text-white transition-colors duration-300">{team.name}</span>
+      <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 rounded-full border-gray-100 overflow-hidden group-hover:scale-110 transition-all duration-300 ease-in-out transform">
+        <img
+          src={team.logoUrl}
+          alt={team.name}
+          className="w-full h-full rounded-full object-cover group-hover:opacity-80 transition-opacity duration-300"
+        />
       </div>
+      <span className="text-[10px] sm:text-[12px] text-gray-200 group-hover:text-white transition-colors duration-300">
+        {team.name}
+      </span>
+    </div>
+    
     ))
   )}
 </div>
@@ -91,11 +94,11 @@ const CategorySection = () => {
         matches.map((match, index) => (
           <div
             key={index}
-            className="flex flex-col items-center space-y-6 bg-black p-6 rounded-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="flex flex-col  items-center space-y-6 bg-gray-800 p-6  rounded-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             style={{ width: '100%' }} // Ensure the card takes full width of grid cell
           >
-            <div className="flex items-center justify-between w-full bg-black">
-              <div className="flex w-[150px] flex-col items-center bg-black">
+            <div className="flex items-center justify-between w-full ">
+              <div className="flex w-[150px] flex-col items-center ">
                 <div className="w-24 h-24 border-4 rounded-full border-gray-100 overflow-hidden">
                   <img
                     src={teamLogos.find(team => team.name === match.team1).logoUrl}
@@ -106,10 +109,10 @@ const CategorySection = () => {
                 <span className="text-sm font-medium text-gray-200">{match.team1}</span>
                 <span className="text-lg font-bold text-white">{match.score1}</span>
               </div>
-              <div className="text-center text-lg text-white font-bold bg-black">
+              <div className="text-center text-lg text-white font-bold ">
                 <span className="text-xs text-gray-400">VS</span>
               </div>
-              <div className="flex w-[150px] flex-col items-center bg-black">
+              <div className="flex w-[150px] flex-col items-center ">
                 <div className="w-24 h-24 border-4 rounded-full border-gray-100 overflow-hidden">
                   <img
                     src={teamLogos.find(team => team.name === match.team2).logoUrl}
@@ -121,9 +124,9 @@ const CategorySection = () => {
                 <span className="text-lg font-bold text-white">{match.score2}</span>
               </div>
             </div>
-            <div className="text-xs text-gray-400 mt-2 text-center bg-black text-white">
-              <p className="bg-black">Match: {match.team1} vs {match.team2}</p>
-              <p className="bg-black">Score: {match.score1} - {match.score2}</p>
+            <div className="text-xs text-lime-400 mt-2 text-center  ">
+              <p className="">Match: {match.team1} vs {match.team2}</p>
+              <p className="">Score: {match.score1} - {match.score2}</p>
             </div>
           </div>
         ))

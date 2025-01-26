@@ -8,6 +8,7 @@ import {
   FaStar,
   FaTrophy,
   FaBasketballBall,
+  FaCircle,
 } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
@@ -44,6 +45,7 @@ const IconBar = () => {
 
   return (
     <div className="relative flex items-center w-full py-6 lg:justify-center">
+       
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
@@ -59,11 +61,14 @@ const IconBar = () => {
         ref={containerRef}
         className="flex mx-2 overflow-x-scroll scrollbar-none snap-x snap-mandatory gap-6 px-6 lg:gap-12 lg:overflow-visible lg:justify-center"
       >
+        
         {icons.map(({ icon: Icon, label }, index) => (
+            
           <div
             key={index}
             className="flex flex-col items-center space-y-2 snap-start lg:space-y-4"
           >
+            
             <div className="p-3 border rounded-full border-gray-500 text-gray-400 lg:p-5">
               <Icon size={20} className="lg:w-5 lg:h-5" />
             </div>
